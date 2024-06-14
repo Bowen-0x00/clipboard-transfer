@@ -8,7 +8,25 @@ import pyperclip
 import win32clipboard
 import base64
 
+keys_to_check = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 
+                     'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 
+                     'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', 
+                     '5', '6', '7', '8', '9', '0', 'enter', 'space', 
+                     'shift', 'ctrl', 'alt']
+
+def wait_key_release():
+    start_time = time.time()
+    current_time = start_time 
+    while current_time - start_time < 3.0:
+        if any(map(keyboard.is_pressed, keys_to_check)):
+            time.sleep(0.02)
+            current_time = time.time()
+            continue
+        else:
+            break
+
 def getText():
+    wait_key_release()
     win32clipboard.OpenClipboard()
     text = ''
     try:
