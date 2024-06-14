@@ -1,5 +1,8 @@
 # clipboard-transfer
 
+[english](./README.md) | [中文](./README_ZH.md)
+
+
 clipboard-transfer 是一个用于在不支持复制粘贴功能的 VNC 服务器环境中传输数据的工具。它允许将剪贴板中的文本内容或文件编码为 Base64 格式，并通过设置的热键将数据输出到目标设备。
 
 为那些无法直接复制粘贴内容的 VNC 服务器提供了一种替代方法，使用户能够轻松地将文本或文件上传到服务器。无需手动进行编码，clipboard-transfer 为数据传输提供了便捷的解决方案。

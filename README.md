@@ -1,5 +1,8 @@
 # clipboard-transfer
 
+[english](./README.md) | [中文](./README_ZH.md)
+
+
 clipboard-transfer is a tool designed to transfer data in VNC server environments where copy-paste functionality is not supported. It allows encoding the text content or files from the clipboard into Base64 format and outputting the encoded data to the target device using a configured hotkey.
 
 It provides an alternative method for users to upload text or files to VNC servers that do not support direct copy-paste functionality. clipboard-transfer offers a convenient solution for data transfer, eliminating the need for manual encoding.
