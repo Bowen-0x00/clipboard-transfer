@@ -10,28 +10,26 @@ import base64
 
 def getText():
     win32clipboard.OpenClipboard()
-    data_format = win32clipboard.EnumClipboardFormats(win32clipboard.CF_UNICODETEXT)
     text = ''
     try:
-        if data_format == win32clipboard.CF_UNICODETEXT:
-            text = win32clipboard.GetClipboardData(win32clipboard.CF_UNICODETEXT)
-        elif data_format == 0:
+        text = win32clipboard.GetClipboardData(win32clipboard.CF_UNICODETEXT)     
+    except Exception as e:
+        try:
             data = win32clipboard.GetClipboardData(win32clipboard.CF_HDROP)
             path = data[0]
             with open(path, 'rb') as file:
                 file_content = file.read()
                 file_base64 = base64.b64encode(file_content)
                 text = file_base64.decode('utf-8')
-            
-    except Exception as e:
-        print(e)
+        except Exception as e:
+            print(e)
     win32clipboard.CloseClipboard()
     return text
 
 def target(start_flag: multiprocessing.Value):
     text = getText()
-    print(text)  
-    # keyboard.write(text.replace('\t', '    '))
+    # print(text)  
+    keyboard.write(text.replace('\t', '    '))
     start_flag.value = False
 
 
